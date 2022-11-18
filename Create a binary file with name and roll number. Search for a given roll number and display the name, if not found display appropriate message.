@@ -1,0 +1,42 @@
+import pickle
+
+#creating the file and writing the data
+def make_file():
+    nameee=input("Enter name: ")
+    rolll=int(input("Enter roll: "))
+    f=open("records.dat", "wb")
+    pickle.dump([nameee, rolll], f)
+    f.close()
+
+#reading the file
+def read_file():
+    import pickle
+    f=open(r"C:\Users\Nebula\Desktop\records.dat", "rb")
+    n=int(input("Enter the Roll Number: "))
+    flag = False
+    while True:
+       try:
+           x=pickle.load(f)
+           if x[1]==n:
+               print("Name: ", x[0])
+               flag = True
+       except EOFError:
+           break
+    if flag==False:
+       print("This Roll Number does not exist, you idiot!")
+
+
+def loop():
+    ans=input("Make 1 more entry?(y/N): ")
+    if ans == "y":
+        make_file()
+        loop()
+    else:
+        readdd=input("read files(Y/n)?: ")
+        if readdd == "n":
+            exit()
+        else:
+            read_file()
+
+make_file()
+loop()
