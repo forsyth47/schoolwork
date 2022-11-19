@@ -1,0 +1,19 @@
+def countULVC():
+    f=(r"C:\Users\Nebula\Desktop\poem.txt" "r")
+    U=L=V=C=0
+    data=f.read()
+    for i in data:
+        if i.isalpha():
+            if i.isupper():
+                U+=1
+            if i.islower():
+                L+=1
+            if i.lower in 'aeiou':
+                V+=1
+            else:
+                C+=1
+    print ("Upper = "+U)
+    print ("Lower = "+L)
+    print ("Vovel = "+V)
+    print ("Conso = "+C)
+countULVC()
